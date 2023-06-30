@@ -13,7 +13,6 @@ export const getCountries = async (req, res) => {
 export const getCountry = async (req, res) => {
   try {
     const { id } = req.params;
-
     const countryinfo = await Countryinfo.findOne(id);
     res.json(countryinfo);
   } catch (error) {
