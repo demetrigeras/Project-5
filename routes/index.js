@@ -5,6 +5,7 @@ import Cart from "./cart.js";
 import Payment from "./payment.js";
 import Shipping from "./shipping.js";
 import User from "./user.js";
+
 const router = Router();
 
 router.get("/", (req, res) => res.send("This is the api root!"));

@@ -9,11 +9,24 @@ export const getProducts = async (req, res) => {
       res.status(500).json({ error: error.message });
     }
   };
+
+  export const getProductCountry = (req, res) => {
+    const productId = req.params.id;
   
+    Product.findById(productId)
+      .populate('country') // Populate the 'country' field and select only the 'name' field
+      .exec((err, product) => {
+        if (err) {
+          res.status(500).json({ error: 'Failed to fetch product' });
+        } else {
+          res.json(product);
+        }
+      });
+  };
   export const getProduct = async (req, res) => {
     try {
       const { id } = req.params;
-      const product = await Product.findOne( id );
+      const product = await Product.findOne({ _id: id} );
       res.json(product);
     } catch (error) {
       console.log(error.message);
