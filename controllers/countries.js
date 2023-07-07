@@ -1,4 +1,5 @@
 import Countryinfo from "../models/countries.js";
+
 import mongoose from "mongoose";
 
 export const getCountries = async (req, res) => {
